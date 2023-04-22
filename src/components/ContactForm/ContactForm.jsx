@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from 'components/ContactForm/ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { addNumber } from '../redux/tasksSlice';
+import { addNumber } from '../redux/numberSlice';
 import { getNumber } from 'components/redux/selectors';
 
 const ContactForm = () => {

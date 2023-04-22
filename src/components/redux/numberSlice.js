@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { numberInitialState } from './reducer';
 import { nanoid } from 'nanoid';
 
-const tasksSlice = createSlice({
+const numberSlice = createSlice({
   name: 'numbers',
   initialState: numberInitialState,
   reducers: {
@@ -26,5 +26,5 @@ const tasksSlice = createSlice({
   },
 });
 
-export const { addNumber, deleteNumber } = tasksSlice.actions;
-export const tasksReducer = tasksSlice.reducer;
+export const { addNumber, deleteNumber } = numberSlice.actions;
+export const numberReducer = numberSlice.reducer;

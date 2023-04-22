@@ -5,7 +5,7 @@ import ContactList from './ContactList/ContactList';
 import { useSelector } from 'react-redux';
 import { getNumber } from './redux/selectors';
 import { useDispatch } from 'react-redux';
-import { deleteNumber } from '../components/redux/tasksSlice';
+import { deleteNumber } from './redux/numberSlice';
 import { setFilter } from '../components/redux/filterSlice';
 
 const App = () => {
