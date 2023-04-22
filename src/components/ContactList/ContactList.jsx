@@ -1,16 +1,20 @@
 import React from 'react';
 import style from 'components/ContactList/ContactList.module.css';
 import PropTypes from 'prop-types';
+import { getNumber, getFilter } from '../redux/selectors';
+import { useSelector } from 'react-redux';
 
 const ContactList = props => {
-  const { contacts, onClick, filter } = props;
+  const { onClick } = props;
+  const contacts = useSelector(getNumber);
+  const filter = useSelector(getFilter).value;
 
   return (
     <ul className={style.list}>
       {contacts
-        .filter(contact =>
-          contact.name.toLowerCase().includes(filter.toLowerCase())
-        )
+        .filter(contact => {
+          return contact.name.toLowerCase().includes(filter.toLowerCase());
+        })
         .map(contact => {
           return (
             <li className={style.list_element} key={contact.id}>
@@ -33,7 +37,7 @@ const ContactList = props => {
 
 ContactList.propTypes = {
   contacts: PropTypes.array,
-  filter: PropTypes.string,
+
   onClick: PropTypes.func,
 };
 
