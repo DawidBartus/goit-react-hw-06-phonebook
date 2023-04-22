@@ -14,7 +14,11 @@ const ContactForm = () => {
     const form = e.currentTarget;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    if (contacts.some(contact => contact.name.toLowerCase() === name)) {
+    if (
+      contacts.some(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
       alert(`${name} is in your contact list`);
     } else {
       dispatch(addNumber({ name, number }));
