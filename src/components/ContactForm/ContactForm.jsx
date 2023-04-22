@@ -1,5 +1,30 @@
-{
-  /* <form className={style.form} onSubmit={this.handleSubmit}>
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { nanoid } from 'nanoid';
+import style from 'components/ContactForm/ContactForm.module.css';
+
+const INITIAL_STATE = {
+  name: '',
+  number: '',
+};
+
+class ContactForm extends Component {
+  state = { ...INITIAL_STATE };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+    const id = nanoid();
+
+    this.props.onSubmit({ id, name, number });
+    form.reset();
+  };
+
+  render() {
+    return (
+      <form className={style.form} onSubmit={this.handleSubmit}>
         <label htmlFor="contactName" className={style.label}>
           Name:
         </label>
@@ -29,5 +54,13 @@
             Add
           </button>
         </span>
-      </form> */
+      </form>
+    );
+  }
 }
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func,
+};
+
+export default ContactForm;
